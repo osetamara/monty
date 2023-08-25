@@ -29,13 +29,6 @@ void push(stack_t **stack, unsigned int line_number)
 
 	/*printf("Argument = %s\n", argument);*/
 	value = atoi(argument);
-	/*
-	 * if (value < 0)
-	 * {
-	 * fprintf(stderr, "L%d: value must be non-negative\n", line_number);
-	 * exit(EXIT_FAILURE);
-	}
-	*/
 	/*printf("value is %d and argument is %s\n", value, argument);*/
 	if (is_numeric(argument) == -1)
 	{

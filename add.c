@@ -6,12 +6,12 @@
  * @counter: line_number
  * Return: no return
  */
-void f_add(stack_t **head, unsigned int counter)
+void f_add(stack_t **stack, unsigned int counter)
 {
 	stack_t *h;
 	int len = 0, aux;
 	/*Count the number of elements in the stack*/
-	h = *head;
+	h = *stack;
 	while (h)
 	{
 		h = h->next;
@@ -23,14 +23,14 @@ void f_add(stack_t **head, unsigned int counter)
 		fprintf(stderr, "L%d: can't add, stack too short\n", counter);
 		fclose(bus.file);
 		free(bus.content);
-		free_stack(*head);
+		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
 	/*Reset the pointer to the stack head*/
-	h = *head;
+	h = *stack;
 	/*Add the top two elements of the stack*/
 	aux = h->n + h->next->n;
 	h->next->n = aux;
-	*head = h->next;/*Update the stack head*/
+	*stack = h->next;/*Update the stack head*/
 	free(h);/*Free previous top element*/
 }

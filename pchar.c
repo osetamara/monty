@@ -21,7 +21,7 @@ void f_pchar(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	/*Check if the value of the top element is within the valid ASCII range*/
+	/*Check if the value of the top element is within valid ASCII range*/
 	if (h->n > 127 || h->n < 0)
 	{
 		fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
@@ -30,6 +30,6 @@ void f_pchar(stack_t **head, unsigned int counter)
 		free_stack(*head);
 		exit(EXIT_FAILURE);
 	}
-	/*Print the character corresponding to the value of the top element*/
+	/*Print character corresponding to value of top element*/
 	printf("%c\n", h->n);
 }

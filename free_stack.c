@@ -4,16 +4,16 @@
  * free_stack - frees a doubly linked list
  * @head: pointer to the head of the stack
  */
-void free_stack(stack_t *head)
+void free_stack(stack_t *stack)
 {
 	stack_t *aux;/*Temporary pointer to traverse the list*/
 
-	aux = head;/*Store the head to not lose the reference*/
+	aux = stack;/*Store the head to not lose the reference*/
 	/*Traverse the list and free each node*/
-	while (head)
+	while (stack)
 	{
-		aux = head->next;/* Store the next node*/
-		free(head);/* Free the current node*/
-		head = aux;/*Move to the next node*/
+		aux = stack->next;/* Store the next node*/
+		free(stack);/* Free the current node*/
+		stack = aux;/*Move to the next node*/
 	}
 }

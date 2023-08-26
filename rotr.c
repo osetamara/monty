@@ -8,23 +8,21 @@
  */
 void f_rotr(stack_t **head, __attribute__((unused)) unsigned int counter)
 {
-	stack_t *copy;
-	/*Get a copy of the stack head*/
-	copy = *head;
-	/*Check if the stack is empty or has only one element*/
+	stack_t *copy, *last;
+
 	if (*head == NULL || (*head)->next == NULL)
 	{
 		return;
 	}
-	/*Traverse to the last element of the stack*/
-	while (copy->next)
+	copy = *head;
+	last = *head;
+
+	while (last->next != NULL)
 	{
-		copy = copy->next;
+		last = last->next;
 	}
-	/*Update the connections to rotate the stack to the bottom*/
-	copy->next = *head;
-	copy->prev->next = NULL;
-	copy->prev = NULL;
-	(*head)->prev = copy;
-	(*head) = copy;
+	last->prev->next = NULL;
+	last->next = copy;
+	copy->prev = last;
+	*head = last;
 }
